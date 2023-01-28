@@ -1,6 +1,8 @@
+import sys
+sys.path.insert(0, '../src')
 import json
-import inspect
 import unittest
+import inspect
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -20,8 +22,8 @@ class TestsLandingPage(unittest.TestCase):
         self.driver.implicitly_wait(TIMEOUT)
 
         # JSON lOAD
-        with open("../Data/JSON_DATA_FILE.json") as netflix_url:
-            self.json_data = json.loads(netflix_url.read())
+        with open(r"../Data/JSON_DATA_FILE.json") as data:
+            self.json_data = json.loads(data.read())
 
         # PAGE OBJECT
         self.landing_page = PageObjectLandingPage(self.driver)

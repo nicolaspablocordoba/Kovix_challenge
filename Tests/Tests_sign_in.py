@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, '../src')
 import json
 import inspect
 import unittest
@@ -22,8 +24,8 @@ class TestsSignIn(unittest.TestCase):
         self.driver.implicitly_wait(TIMEOUT)
 
         # JSON lOAD
-        with open("../Data/JSON_DATA_FILE.json") as netflix_url:
-            self.json_data = json.loads(netflix_url.read())
+        with open("../Data/JSON_DATA_FILE.json") as data:
+            self.json_data = json.loads(data.read())
 
         # PAGE OBJECT
         self.sign_in = PageObjectSignIn(self.driver)

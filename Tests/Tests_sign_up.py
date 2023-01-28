@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, '../src')
 import json
 import inspect
 import time
@@ -24,8 +26,8 @@ class TestsSignUP(unittest.TestCase):
         self.driver.implicitly_wait(TIMEOUT)
 
         # JSON lOAD
-        with open("../Data/JSON_DATA_FILE.json") as netflix_url:
-            self.json_data = json.loads(netflix_url.read())
+        with open("../Data/JSON_DATA_FILE.json") as data:
+            self.json_data = json.loads(data.read())
 
         # PAGE OBJECT
         self.sign_up = PageObjectSignUp(self.driver)
@@ -85,6 +87,8 @@ class TestsSignUP(unittest.TestCase):
         try:
             # a. Comienza en la pantalla de sign-up.
             self.driver.get(self.json_data["URL_SIGN_UP"])
+            time.sleep(0.3)
+            self.sign_up.click_accept_cookies_button()
 
             # b. Click sobre campo Username y completar con un usuario aleatorio
             self.sign_up.click_username_field()
