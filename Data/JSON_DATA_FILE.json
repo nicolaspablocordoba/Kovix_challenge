@@ -1,0 +1,13 @@
+{
+  "URL_LANDING_PAGE":"https://www.themoviedb.org/",
+  "URL_SIGN_UP": "https://www.themoviedb.org/signup",
+  "URL_SIGN_IN": "https://www.themoviedb.org/login",
+  "URL_PROFILE": "https://www.themoviedb.org/u/kovix_test",
+  "USERNAME": "kovix_test",
+  "ACCOUNT": "nicolas.pablo.cordoba@gmail.com",
+  "USERNAME_INCORRECT":"Automation_test_kovix",
+  "PASSWORD_INCORRECT":"Automation_test",
+  "PASSWORD": "kovix_password",
+  "MOVIE": "guardians of the galaxy",
+  "MOVIE_WITH_YEAR_FILTER": "Batman Begins y:2005"
+}
