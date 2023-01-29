@@ -1,5 +1,8 @@
 import sys
-sys.path.insert(0, '../src')
+import json
+with open("../Data/JSON_DATA_FILE.json") as path_data:
+    json_path = json.loads(path_data.read())
+sys.path.append(json_path["ABSOLUTE_PATH"])
 import json
 import inspect
 import unittest

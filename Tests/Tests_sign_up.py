@@ -1,6 +1,8 @@
 import sys
-sys.path.insert(0, '../src')
 import json
+with open("../Data/JSON_DATA_FILE.json") as path_data:
+    json_path = json.loads(path_data.read())
+sys.path.append(json_path["ABSOLUTE_PATH"])
 import inspect
 import time
 import unittest
@@ -87,7 +89,7 @@ class TestsSignUP(unittest.TestCase):
         try:
             # a. Comienza en la pantalla de sign-up.
             self.driver.get(self.json_data["URL_SIGN_UP"])
-            time.sleep(0.3)
+            time.sleep(0.5)
             self.sign_up.click_accept_cookies_button()
 
             # b. Click sobre campo Username y completar con un usuario aleatorio
@@ -120,7 +122,8 @@ class TestsSignUP(unittest.TestCase):
         else:
             # ASSERT
             # g. Verificar que el sistema no te permite completar un formulario sin valores correctos.
-            pass
+            self.account_verification_message = WebDriverWait(self.driver, TIMEOUT).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="main"]/section/div/div/div/div/div/a/h2/span'))).text
+            self.assertIn("Account verification required", self.account_verification_message)
 
     def tearDown(self):
         self.driver.close()

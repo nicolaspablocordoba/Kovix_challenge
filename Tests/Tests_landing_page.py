@@ -1,5 +1,8 @@
 import sys
-sys.path.insert(0, '../src')
+import json
+with open("../Data/JSON_DATA_FILE.json") as path_data:
+    json_path = json.loads(path_data.read())
+sys.path.append(json_path["ABSOLUTE_PATH"])
 import json
 import unittest
 import inspect
@@ -117,6 +120,20 @@ class TestsLandingPage(unittest.TestCase):
             # d. Verifica que el buscador de películas funcione correctamente.
             self.movie_result = self.driver.find_element(By.XPATH, '//div/div[2]/div[1]/div/div/a/h2').text
             self.assertIn(self.movie_result.lower(), self.json_data["MOVIE_WITH_YEAR_FILTER"].lower())
+
+    def test_landing_page_fail_report(self):
+        # este test está puesto de ejemplo para poder ver el fallo del assert en el reporte
+        self.assertTrue(False)
+
+    def test_landing_page_error_report(self):
+        # este test está puesto de ejemplo para poder ver el error del assert en el reporte
+        self.driver.get(self.json_data["URL_LANDING_PAGE"])
+        self.driver.find_element(By.ID, 'ERROR')
+
+    @unittest.skip("Test skipeado para ver en el reporte")
+    def test_landing_page_skip_report(self):
+        # este test está puesto de ejemplo para poder ver el fallo del assert en el reporte
+        self.assertTrue(False)
 
     def tearDown(self):
         self.driver.close()

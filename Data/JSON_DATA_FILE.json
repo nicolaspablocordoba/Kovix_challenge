@@ -9,5 +9,6 @@
   "PASSWORD_INCORRECT":"Automation_test",
   "PASSWORD": "kovix_password",
   "MOVIE": "guardians of the galaxy",
-  "MOVIE_WITH_YEAR_FILTER": "Batman Begins y:2005"
+  "MOVIE_WITH_YEAR_FILTER": "Batman Begins y:2005",
+  "ABSOLUTE_PATH":"/home/nicolas/PycharmProjects/Kovix_challenge"
 }
