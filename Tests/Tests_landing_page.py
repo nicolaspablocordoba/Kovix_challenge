@@ -21,6 +21,7 @@ class TestsLandingPage(unittest.TestCase):
         # CHROME CONFIGURATION
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
+        options.add_argument("--lang=en")
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         self.driver.implicitly_wait(TIMEOUT)
 

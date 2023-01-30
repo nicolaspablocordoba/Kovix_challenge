@@ -22,7 +22,7 @@ Para poder ejecutar los test desde la consola o por VSC (Visual Studio Code),
 deberemos hacer una modificación en el archivo [JSON_DATA_FILE.json](Data%2FJSON_DATA_FILE.json), 
 modificando el valor "ABSOLUTE_PATH" por el path absoluto hasta la raiz del proyecto 
 (Ejemplo: Si la carpeta se descarga dentro del escritorio de windows se deberá modificar el path por 
-C:\Escritorio\Kovix_challenge)
+```C:\\Escritorio\\Kovix_challenge``` IMPORTANTE: en caso de ser windows, debe utilizarse la doble barra invertida)
 
 Luego, para poder correr los test por consola, ingresaremos por la consola hasta la carpeta Test y luego correremos el 
 comando ```python3 -m unittest Suite_``` para ubuntu (luego del guión bajo se especifica que suite se desea correr). 
