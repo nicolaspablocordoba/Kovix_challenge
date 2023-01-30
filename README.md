@@ -3,9 +3,12 @@
 En este repositorio, dejo subido el challenge técnico de Kovix, una descripción de la instalación y cómo correr los test por consola.
 
 ## _*Instalación de Python, Git y Chrome*_:
-- Se deberá instalar python: para ello, ingresaremos en el link "https://www.python.org/" y descargaremos la versión más actual (al momento de crear este proyecto, se utilizó python 3.10).
-- Se deberá instalar git. Para ello ingresaremos en "https://git-scm.com/" y descargaremos la última versión compatible con nuestro procesador. (esto en caso de usar Windows, en ubuntu ya viene instalado por defecto)
-- Se utilizará como navegador chrome, para descargarlo deberemos ingresar en "https://www.google.com/intl/es-419/chrome/" y hacer click en "Descargar Chrome".
+- Se deberá instalar python: para ello, ingresaremos en el link "https://www.python.org/" y descargaremos la versión más
+actual (para este proyecto, se utilizó python 3.10). Al momento de instalar se deberá tildar la opción "Add Python.exe to PATH"
+- Se deberá instalar git. Para ello ingresaremos en "https://git-scm.com/" y descargaremos la última versión compatible 
+con nuestro procesador. (esto en caso de usar Windows, en ubuntu ya viene instalado por defecto)
+- Se utilizará como navegador chrome, para descargarlo deberemos ingresar en "https://www.google.com/intl/es-419/chrome/" 
+y hacer click en "Descargar Chrome".
 
 ## _*Clonación del proyecto*_:
 Una vez instalado Git, deberemos clonar el proyecto en el lugar que nosotros deseemos, para lo cual, deberemos abrir una consola en el lugar que queramos y ejecutar el siguiente comando
@@ -14,24 +17,24 @@ Una vez instalado Git, deberemos clonar el proyecto en el lugar que nosotros des
 
 ## _*Librerías necesarias*_:
 Para poder ejecutar el proyecto, se deberán instalar las siguientes librerías necesarias para correr el proyecto. 
-Para ello nos posicionaremos sobre la carpeta raiz del proyecto ("/Kovix_challenge") e introduciremos el siguiente comando:
-- ```pip install -r requirements.txt```
+Para ello abriremos una consola y nos posicionaremos sobre la carpeta raiz del proyecto (```\Kovix_challenge```) e introduciremos el siguiente comando:
+- ```pip install -r requirements.txt```. Si la instalación de python se hizo correctamente, se instalaran todas las librerías necesarias.
 
-## _*Ejecutar los test por consola o VSC*_:
-Para poder ejecutar los test desde la consola o por VSC (Visual Studio Code), 
+## _*Ejecutar los test por consola*_:
+Para poder ejecutar los test desde la consola, 
 deberemos hacer una modificación en el archivo [JSON_DATA_FILE.json](Data%2FJSON_DATA_FILE.json), 
 modificando el valor "ABSOLUTE_PATH" por el path absoluto hasta la raiz del proyecto 
 (Ejemplo: Si la carpeta se descarga dentro del escritorio de windows se deberá modificar el path por 
 ```C:\\Escritorio\\Kovix_challenge``` IMPORTANTE: en caso de ser windows, debe utilizarse la doble barra invertida)
 
-Luego, para poder correr los test por consola, ingresaremos por la consola hasta la carpeta Test y luego correremos el 
+Luego, para poder correr los test por consola, ingresaremos por la consola hasta la carpeta ```\Test``` y luego correremos el 
 comando ```python3 -m unittest Suite_``` para ubuntu (luego del guión bajo se especifica que suite se desea correr). 
 En caso de que estemos utilizando Windows el comando será ```py -m unittest Suite_```
 
 ## _*Consideraciones personales y explicaciones del código*_:
 - Para realizar este challenge, decicí utilizar la herramienta Selenium Webdriver con Python, ya que, está considerada una
-herramienta muy robusta para automatizar, tiene una gran comunidad detrás en caso de necesitar resolver algún problema o permite 
-agregar código propio para resolver alguna situación particular. 
+herramienta muy robusta para automatizar, tiene una gran comunidad detrás en caso de necesitar resolver algún problema y también permite 
+agregar código propio para resolver alguna situación particular en caso de ser necesario. 
 
 
 - Empleé el patron de diseño POM (Page Object Model), que encapsula el comportamiento
@@ -42,7 +45,7 @@ de cada uno de los elementos de la pantalla para poder usarlos luego en los test
 y luego, en cada paso, se encontrará comentado que paso es el que se está realizando.
 
 
-- En todo el proyecto se utilizan esperas implicitas(dentro de los test) y explicitas(dentro de los page objects).
+- En todo el proyecto se utilizan esperas implicitas (dentro de los test) y explicitas (dentro de los page objects).
 Se puede observar en el test_sign_up, en la línea 92 un time.sleep, en general, el uso de sleeps se considera una mala 
 práctica, pero decidí utilizarlo en este caso debido a que la página detecta la automatización y me envía a una pantalla de error.
 
