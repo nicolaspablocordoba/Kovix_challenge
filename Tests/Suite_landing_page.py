@@ -4,11 +4,11 @@ with open("../Data/JSON_DATA_FILE.json") as path_data:
     json_path = json.loads(path_data.read())
 sys.path.append(json_path["ABSOLUTE_PATH"])
 import unittest
-import xmlrunner
-
+import src.Functions.HtmlTestRunner as HtmlTestRunner
 
 # ARCHIVOS DONDE SE ENCUENTRAN LOS TEST
 import Tests.Tests_landing_page
+
 
 # INSTANCIA DE LOADER Y SUIT
 loader = unittest.TestLoader()
@@ -22,5 +22,6 @@ suite.addTest(Tests.Tests_landing_page.TestsLandingPage("test_landing_page_fail_
 suite.addTest(Tests.Tests_landing_page.TestsLandingPage("test_landing_page_error_report"))
 suite.addTest(Tests.Tests_landing_page.TestsLandingPage("test_landing_page_skip_report"))
 
+
 # RUNNER Y REPORTE HTML
-testRunner = xmlrunner.XMLTestRunner(output='test-reports').run(suite)
+h = HtmlTestRunner.HTMLTestRunner(combine_reports=True, report_name="Reporte Suite Landing Page", add_timestamp=False, verbosity=2).run(suite)

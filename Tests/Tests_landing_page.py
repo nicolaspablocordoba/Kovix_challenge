@@ -129,7 +129,7 @@ class TestsLandingPage(unittest.TestCase):
     def test_landing_page_error_report(self):
         # este test está puesto de ejemplo para poder ver el error del assert en el reporte
         self.driver.get(self.json_data["URL_LANDING_PAGE"])
-        self.driver.find_element(By.ID, 'ERROR')
+        self.driver.find_element(By.ID, 'ERROR_REPORT_HTML')
 
     @unittest.skip("Test skipeado para ver en el reporte")
     def test_landing_page_skip_report(self):

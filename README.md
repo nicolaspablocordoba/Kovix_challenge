@@ -11,7 +11,7 @@ con nuestro procesador. (esto en caso de usar Windows, en ubuntu ya viene instal
 y hacer click en "Descargar Chrome".
 
 ## _*Clonación del proyecto*_:
-Una vez instalado Git, deberemos clonar el proyecto en el lugar que nosotros deseemos, para lo cual, deberemos abrir una consola en el lugar que queramos y ejecutar el siguiente comando
+Una vez instalado Git, deberemos clonar el proyecto en el lugar que nosotros deseemos, para lo cual, deberemos abrir una consola en el lugar que queramos y ejecutar el siguiente comando:
 - ```git clone https://github.com/nicolaspablocordoba/Kovix_challenge.git```
 - https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository (instructivo de ayuda)
 
@@ -21,15 +21,17 @@ Para ello abriremos una consola y nos posicionaremos sobre la carpeta raiz del p
 - ```pip install -r requirements.txt```. Si la instalación de python se hizo correctamente, se instalaran todas las librerías necesarias.
 
 ## _*Ejecutar los test por consola*_:
-Para poder ejecutar los test desde la consola, 
+- Antes de ejecutar los test desde la consola, 
 deberemos hacer una modificación en el archivo [JSON_DATA_FILE.json](Data%2FJSON_DATA_FILE.json), 
-modificando el valor "ABSOLUTE_PATH" por el path absoluto hasta la raiz del proyecto 
+modificando el valor "ABSOLUTE_PATH" por el path absoluto hasta la raiz del proyecto (se obtiene ingresando a la carpeta y copiando la ruta de la carpeta) 
 (Ejemplo: Si la carpeta se descarga dentro del escritorio de windows se deberá modificar el path por 
 ```C:\\Escritorio\\Kovix_challenge``` IMPORTANTE: en caso de ser windows, debe utilizarse la doble barra invertida)
 
-Luego, para poder correr los test por consola, ingresaremos por la consola hasta la carpeta ```\Test``` y luego correremos el 
-comando ```python3 -m unittest Suite_``` para ubuntu (luego del guión bajo se especifica que suite se desea correr). 
-En caso de que estemos utilizando Windows el comando será ```py -m unittest Suite_```
+
+- Para poder correr los test por consola, ingresaremos por la consola hasta la carpeta ```\Test``` y luego correremos el 
+comando ```python3 -m unittest Suite_criterios_de_aceptacion.py``` para ubuntu y en caso de que estemos utilizando Windows 
+el comando será 
+```py -m unittest Suite_criterios_de_aceptacion.py```
 
 ## _*Consideraciones personales y explicaciones del código*_:
 - Para realizar este challenge, decicí utilizar la herramienta Selenium Webdriver con Python, ya que, está considerada una
@@ -46,7 +48,7 @@ y luego, en cada paso, se encontrará comentado que paso es el que se está real
 
 
 - En todo el proyecto se utilizan esperas implicitas (dentro de los test) y explicitas (dentro de los page objects).
-Se puede observar en el test_sign_up, en la línea 92 un time.sleep, en general, el uso de sleeps se considera una mala 
+Se puede observar en el test_sign_up, en la línea 55 un ```time.sleep(0.5)```, en general, el uso de sleeps se considera una mala 
 práctica, pero decidí utilizarlo en este caso debido a que la página detecta la automatización y me envía a una pantalla de error.
 
 
@@ -54,7 +56,7 @@ práctica, pero decidí utilizarlo en este caso debido a que la página detecta 
 que tiene las funciones para poder crear un email, usuario y contraseña aleatorio.
 
 
-- Al momento de finalizar la suite, se genera un reporte XML que registra en que momento se corrió la suite, cuanto tiempo
+- Al momento de finalizar la suite, se genera un reporte HTML que registra en que momento se corrió la suite, cuanto tiempo
 tardó en correrse, cuantos test estaban incluidos en la suite, que test pasaron correctamente, que test fallaron el assert, 
 que test tuvieron un error (antes de poder ejecutar el assert) y que test fueron skipeados. En caso de encontrarse con un error o un fallo,
 se mostrará que tipo de error fué y el código en el que apareció ese error o fallo.
@@ -70,6 +72,11 @@ y por último se agregó la prueba adicional "test_create_account" en la pantall
 los resultados de un fail, un error y un skip dentro del reporte generado por la suite.
 
 
+- Para los reportes HTML, utilizo la librería HtmlTestRunner, la cual se encuentra dentro del proyecto y no en las 
+librerías incluidas en el requirements.txt, debido a un error dentro de la misma que imposibilita utilizarlo con versiones actuales de python, por lo cual,
+pasé la librería al proyecto, corregí el error de incompatibilidad y luego la llamo en las suites como un archivo común del proyecto.
+
+
 - Si se desea correr los test en modo "headless" se deberá ingresar en cada test y modificar ```options.add_argument("--start-maximized")``` por ```options.add_argument("--headless")```
 
 
@@ -79,4 +86,4 @@ y casi no es posible ver que es lo que está pasando en ese momento.
 
 
 
-Cualquier duda o consulta, quedo a su disposición. Saludos!
+Cualquier duda o consulta, quedo a su disposición. ¡Saludos!

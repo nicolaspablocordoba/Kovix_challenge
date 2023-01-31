@@ -52,7 +52,7 @@ class TestsSignUP(unittest.TestCase):
 
             # a. Comienza en la pantalla de sign-up.
             self.driver.get(self.json_data["URL_SIGN_UP"])
-            time.sleep(0.3)
+            time.sleep(0.5)
             self.sign_up.click_accept_cookies_button()
 
             # b. Ingresa algunos datos inválidos o campos vacíos.
